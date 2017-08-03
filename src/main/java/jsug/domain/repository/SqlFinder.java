@@ -1,6 +1,7 @@
 package jsug.domain.repository;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ import java.nio.charset.StandardCharsets;
 @Component
 @Slf4j
 public class SqlFinder {
+    @Cacheable("sql")
 
     public String get(String path) {
         Resource resource = new ClassPathResource(path);
